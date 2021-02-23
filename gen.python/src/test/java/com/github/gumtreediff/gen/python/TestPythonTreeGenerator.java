@@ -34,6 +34,7 @@ public class TestPythonTreeGenerator {
 
     @Test
     public void testSimple() throws IOException {
+        //final String PYTHONPARSER_CMD = System.getProperty("gt.pp.path", "pythonparser");
         String input = "import sys\nimport json as json\n";
         TreeContext ctx = new PythonTreeGenerator().generateFrom().string(input);
         Tree t = ctx.getRoot();

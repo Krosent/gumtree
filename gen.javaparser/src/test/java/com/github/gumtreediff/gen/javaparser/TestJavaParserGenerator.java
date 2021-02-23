@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 import com.github.gumtreediff.gen.SyntaxException;
+import com.github.gumtreediff.io.TreeIoUtils;
 import com.github.gumtreediff.tree.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,9 +55,24 @@ public class TestJavaParserGenerator {
     @ParameterizedTest
     @MethodSource("provideStringAndExpectedLength")
     public void testSimpleSyntax(String expectedRootType, int expectedSize, String input) throws IOException {
-        Tree tree = new JavaParserGenerator().generateFrom().string(input).getRoot();
-        assertEquals(type(expectedRootType), tree.getType());
-        assertEquals(expectedSize, tree.getMetrics().size);
+        String _input = "public class AddTwoIntegers {\n" +
+                "\n" +
+                "    public static void main(String[] args) {\n" +
+                "        \n" +
+                "        int first = 10;\n" +
+                "        int second = 20;\n" +
+                "\n" +
+                "        System.out.println(\"Enter two numbers: \" + first + \" \" + second);\n" +
+                "        int sum = first + second;\n" +
+                "\n" +
+                "        System.out.println(\"The sum is: \" + sum);\n" +
+                "    }\n" +
+                "}";
+
+        TreeContext context = new JavaParserGenerator().generateFrom().string(input);
+        Tree tree = context.getRoot();
+
+        System.out.println("Hey: " + TreeIoUtils.toXml(context).toString());
     }
 
     @Test

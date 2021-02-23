@@ -20,3 +20,5 @@ include 'benchmark',
         'gen.srcml'
 
 rootProject.name = "gumtree"
+include 'gen.jsitter'
+

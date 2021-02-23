@@ -122,8 +122,11 @@ public class MappingStore implements Iterable<Mapping> {
      */
     public void addMappingRecursively(Tree src, Tree dst) {
         addMapping(src, dst);
-        for (int i = 0; i < src.getChildren().size(); i++)
+        for (int i = 0; i < src.getChildren().size(); i++) {
+            // System.out.println("Source children size: " + src.getChildren().size());
+            // System.out.println("Dst children size: " + dst.getChildren().size());
             addMappingRecursively(src.getChild(i), dst.getChild(i));
+        }
     }
 
     /**
