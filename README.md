@@ -37,10 +37,18 @@ We already deal with a wide range of languages: C, Java, JavaScript, Python, R, 
 
 More languages are coming soon, if you want to help contact [me](http://www.labri.fr/perso/falleri).
 
-## Citing GumTree
+## TreeSitter Support
+Our job was to add TreeSitter support for Gumtree. We use it explicitly for Java language. 
+However, with few tweaks you can ad support for other languages that supported by Tree Sitter. 
 
-We are researchers, therefore if you use GumTree in an academic work we would be really glad if you cite our seminal paper using the following bibtex:
+TreeSitter Java parsed tree generator is available here: https://github.com/Krosent/GumtreeJavaLangXmlGenerator.
 
+## Original Project
+This is a forked Gumtree project. Please look at the original project at https://github.com/GumTreeDiff/gumtree. 
+
+## Referencing
+Please always indicate that this repository is based on original work. 
+Original project is made by:
 ```
 @inproceedings{DBLP:conf/kbse/FalleriMBMM14,
   author    = {Jean{-}R{\'{e}}my Falleri and
