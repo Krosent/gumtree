@@ -1,3 +1,4 @@
+import com.github.gumtreediff.gen.jsitter.TreeSitterTreeGenerator;
 import com.github.gumtreediff.io.TreeIoUtils;
 import com.github.gumtreediff.matchers.MappingStore;
 import com.github.gumtreediff.matchers.Matcher;
@@ -100,6 +101,8 @@ public class TestTSJGenerator {
         Tree t2 = ctx2.getRoot();
         Tree t3 = ctx3.getRoot();
 
+
+
         System.out.println("Tree1: \n" + ctx1.getRoot().toTreeString());
         System.out.println("Tree2: \n" + ctx2.getRoot().toTreeString());
         System.out.println("Tree3: \n" + ctx3.getRoot().toTreeString());
@@ -124,6 +127,7 @@ public class TestTSJGenerator {
     }
 
     public TreeContext getTreeContext(String input) throws IOException {
+
         return new TreeSitterTreeGenerator().generateFrom().string(input);
     }
 

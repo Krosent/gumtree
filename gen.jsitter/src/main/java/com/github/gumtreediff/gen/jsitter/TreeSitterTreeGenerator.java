@@ -1,3 +1,24 @@
+/*
+ * This file is part of GumTree.
+ *
+ * GumTree is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GumTree is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with GumTree.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright 2011 Jean-Rémy Falleri
+ */
+
+package com.github.gumtreediff.gen.jsitter;
+
 import com.github.gumtreediff.gen.ExternalProcessTreeGenerator;
 import com.github.gumtreediff.gen.Register;
 import com.github.gumtreediff.gen.Registry;
@@ -13,6 +34,18 @@ public class TreeSitterTreeGenerator extends ExternalProcessTreeGenerator {
     private static final String JAVA_PARSER_CMD =
             "/Users/artyomkuznetsov/PycharmProjects/GumtreeXmlGenerator/main.py";
 
+
+    // This method is used to return XML representation of code. String format
+    public String getXmlTree(Reader r) throws IOException {
+        return readStandardOutput(r);
+    }
+
+    // Generator of Tree Context. Takes XML formatted code snippet.
+    public TreeContext generate(String xmlTree) throws IOException {
+        return TreeIoUtils.fromXml().generateFrom().string(xmlTree);
+    }
+
+    // Generator which takes a not parsed code and does the job.
     @Override
     protected TreeContext generate(Reader r) throws IOException {
         String output = readStandardOutput(r);

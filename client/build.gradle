@@ -1,1 +1,8 @@
 description = 'GumTree abstract client module.'
+
+
+dependencies {
+    implementation project(':gen.jsitter')
+    compile project(path: ':gen.jsitter', configuration: 'compile')
+    // compile project ':gen.jsitter'
+}

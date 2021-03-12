@@ -27,20 +27,21 @@ class NoNewlineTransformer extends AppendingTransformer {
 dependencies {
 	implementation project(':client')
 	implementation project(':client.diff')
-	implementation project(':gen.antlr3')
-	implementation project(':gen.antlr3-antlr')
-	implementation project(':gen.antlr3-json')
-	implementation project(':gen.antlr3-php')
-	implementation project(':gen.antlr3-r')
-	implementation project(':gen.antlr3-xml')
-	implementation project(':gen.c')
-	implementation project(':gen.css')
-	implementation project(':gen.javaparser')
-	implementation project(':gen.jdt')
-	implementation project(':gen.js')
-	implementation project(':gen.python')
-	implementation project(':gen.ruby')
-	implementation project(':gen.srcml')
+	implementation project(':gen.jsitter')
+//	implementation project(':gen.antlr3')
+//	implementation project(':gen.antlr3-antlr')
+//	implementation project(':gen.antlr3-json')
+//	implementation project(':gen.antlr3-php')
+//	implementation project(':gen.antlr3-r')
+//	implementation project(':gen.antlr3-xml')
+//	implementation project(':gen.c')
+//	implementation project(':gen.css')
+//	implementation project(':gen.javaparser')
+//	implementation project(':gen.jdt')
+//	implementation project(':gen.js')
+//	implementation project(':gen.python')
+//	implementation project(':gen.ruby')
+//	implementation project(':gen.srcml')
 }
 
 description = 'GumTree distribution.'
@@ -76,7 +77,7 @@ distributions {
 	}
 }
 
-mainClassName = 'com.github.gumtreediff.client.Run'
+mainClassName = 'com.github.gumtreediff.client.Main'
 applicationName = 'gumtree'
 archivesBaseName = 'gumtree'
 shadowDistZip.enabled = true
