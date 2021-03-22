@@ -40,31 +40,65 @@ public class TestTSJGenerator {
 
         // First tree input
         String input1 =
-                "public static void main(String[] args) {\n" +
-                        "\n" +
-                        "        char ch = 'a';\n" +
-                        "        int ascii = ch;\n" +
-                        "        // You can also cast char to int\n" +
-                        "        int castAscii = (int) ch;\n" +
-                        "\n" +
-                        "        System.out.println(\"The ASCII value of \" + ch + \" is: \" + ascii);\n" +
-                        "        System.out.println(\"The ASCII value of \" + ch + \" is: \" + castAscii);\n" +
+                "    public class Target{\n" +
+                        "        @Min(0)\n" +
+                        "        @Column(columnDefinition=\"default 0\")\n" +
+                        "        public Long       val1 = 0L;\n" +
+                        "        @Min(0)\n" +
+                        "        @Column(columnDefinition=\"default 0\")\n" +
+                        "        public Long       val2 = 0L;\n" +
+                        "    \n" +
+                        "        public Target() {\n" +
+                        "            this.total = Long.valueOf(0L);\n" +
+                        "            this.val1 = Long.valueOf(0L);\n" +
+                        "            this.val2 = Long.valueOf(0L);\n" +
+                        "        }\n" +
+                        "    \n" +
+                        "        public Long calcTotal() {\n" +
+                        "            return val1 + val2 ;\n" +
+                        "        }\n" +
+                        "    \n" +
+                        "        public void setVal1(Long val) {\n" +
+                        "            this.val1 = checkNotNull(val);\n" +
+                        "            total = calcTotal();\n" +
+                        "        }\n" +
+                        "    \n" +
+                        "        public void setVal2(Long val) {\n" +
+                        "            this.val2 = checkNotNull(val);\n" +
+                        "            total = calcTotal();\n" +
+                        "        }\n" +
                         "    }";
 
         // Second tree input
-        String input2 = "public class AsciiValue {\n" +
-                "\n" +
-                "    public static void main(String[] args) {\n" +
-                "\n" +
-                "        char ch = 'a';\n" +
-                "        int ascii = ch;\n" +
-                "        // You can also cast char to int\n" +
-                "        int castAscii = (int) ch;\n" +
-                "\n" +
-                "        System.out.println(\"The ASCII value of \" + ch + \" is: \" + ascii);\n" +
-                "        System.out.println(\"The ASCII value of \" + ch + \" is: \" + castAscii);\n" +
-                "    }\n" +
-                "}";
+        String input2 = "    public class Target{\n" +
+                "        public Long       total;\n" +
+                "        @Min(0)\n" +
+                "        @Column(columnDefinition=\"default 0\")\n" +
+                "        public Long       val1 = 0L;\n" +
+                "        @Min(0)\n" +
+                "        @Column(columnDefinition=\"default 0\")\n" +
+                "        public Long       val2 = 0L;\n" +
+                "    \n" +
+                "        public Target() {\n" +
+                "            this.total = Long.valueOf(0L);\n" +
+                "            this.val1 = Long.valueOf(0L);\n" +
+                "            this.val2 = Long.valueOf(0L);\n" +
+                "        }\n" +
+                "    \n" +
+                "        public Long calcTotal() {\n" +
+                "            return val1 + val2 ;\n" +
+                "        }\n" +
+                "    \n" +
+                "        public void setVal1(Long val) {\n" +
+                "            this.val1 = checkNotNull(val);\n" +
+                "            total = calcTotal();\n" +
+                "        }\n" +
+                "    \n" +
+                "        public void setVal2(Long val) {\n" +
+                "            this.val2 = checkNotNull(val);\n" +
+                "            total = calcTotal();\n" +
+                "        }\n" +
+                "    }";
 
         String input3 = "" +
                 "public class SwapNumbers {\n" +
